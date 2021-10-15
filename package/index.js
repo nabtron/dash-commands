@@ -1,7 +1,7 @@
 function dashCommands(input){
 
     if(input == null || input.length === 0) {
-        return []
+        return {}
     }
 
     // enhance: check if the quote is preceded by a backslash
@@ -9,7 +9,7 @@ function dashCommands(input){
     // console.log(args)
 
     if(args == null || args.length === 0){
-        return []
+        return {}
     }
 
     /**
@@ -25,26 +25,21 @@ function dashCommands(input){
         return str.trim()
     })
 
-    dict = (args) => {
-        args.forEach((el,index) => {
-            console.log(index)
+    // arg_clean = []
+    arg_clean = {}
 
-            const arg_dict = []
-            if (el.charAt(0) === '-') {
-                if(args[index + 1].charAt(0) != '-'){
-                    arg_dict[el.substr(1,el.length -1)] = args[index + 1]
-                }
+    for(i = 0; i < args.length; i++){
+        if (args[i].charAt(0) === '-') {
+            if(args[i + 1].charAt(0) != '-'){
+                // arg_clean.push({[args[i].substr(1,args[i].length -1)]: args[i + 1]})
+                arg_clean[args[i].substr(1,args[i].length -1)] = args[i + 1]
             }
-
-            console.log(arg_dict)
-        });
-        // console.log(args)
+        }
     }
 
-    output = dict(args)
+    // console.log(arg_clean.title)
 
-
-    return []
+    return arg_clean
 }
 
 module.exports = dashCommands

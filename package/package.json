@@ -1,6 +1,6 @@
 {
   "name": "dash-commands",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Converts string into arguments based on dashed flags [ -id 123 ]",
   "main": "index.js",
   "scripts": {
